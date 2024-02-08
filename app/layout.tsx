@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import "bootstrap/dist/css/bootstrap.css";
 import "./globals.css";
+import BootstrapClient from "@/context/BootstrapClient";
+import Navbar from "@/components/Navbar";
+import AptosWalletProvider from "@/context/AptosWalletProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +20,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <AptosWalletProvider>
+          <BootstrapClient />
+          <Navbar />
+          {children}
+        </AptosWalletProvider>
+      </body>
     </html>
   );
 }
