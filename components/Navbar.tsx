@@ -1,6 +1,7 @@
 "use client"
 import React from "react";
 import '@splidejs/react-splide/css';
+import Link from "next/link";
 export default function Navbar() {
 
 
@@ -43,7 +44,7 @@ export default function Navbar() {
 
     return (
         <React.Fragment>
-            <div className="overlay overlay-slide-left" id="overlay">
+            {/* <div className="overlay overlay-slide-left" id="overlay">
                 <nav>
                     <ul>
                         <li id="nav-1" className="slide-out-1 center" onClick={() => toggleNav()}>
@@ -63,27 +64,27 @@ export default function Navbar() {
                         </li>
                     </ul>
                 </nav>
-            </div>
+            </div> */}
 
 
             <nav id="main-nav" className="navbar-expand-xl ">
                 <div className="navbar container-fluid">
                     <div className="container ">
-                        <div className="hamburger-menu" id="hamburger-menu" onClick={() => toggleNav()}>
+                        {/* <div className="hamburger-menu" id="hamburger-menu" onClick={() => toggleNav()}>
                             <div className="menu-bar1"></div>
                             <div className="menu-bar2"></div>
                             <div className="menu-bar3"></div>
-                        </div>
-                        <a className="navbar-brand" href="index.html">
+                        </div> */}
+                        <Link className="navbar-brand" href="/">
                             <img src="/logo.jpeg" className="logo" />
-                        </a>
+                        </Link>
 
                         <div className="bottom-bar">
                             <div className="common">
                                 <div className="card1">
-                                    <a className="social-link2">
+                                    <a className="social-link2" href="https://twitter.com/immulegends" target="_blank">
                                         <svg viewBox="0 0 16 16" className="bi bi-twitter" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg" style={{ color: "white" }}> <path fill="white" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path> </svg>              </a>
-                                    <a className="social-link3">
+                                    <a className="social-link3" href="https://discord.gg/2P3r42NM8b" target="_blank">
                                         <svg viewBox="0 0 16 16" className="bi bi-discord" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg" style={{ color: "white" }}> <path fill="white" d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"></path> </svg>
                                     </a>
                                 </div>
@@ -96,7 +97,7 @@ export default function Navbar() {
                         </div>
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item ">
-                                <a className="nav-link" href="">
+                                <a className="nav-link" href="https://discord.gg/2P3r42NM8b" target="_blank">
                                     <button className="btn" type="button">
                                         <span>
                                             <svg width="23" height="26" viewBox="0 0 23 26" fill="none"
@@ -119,7 +120,7 @@ export default function Navbar() {
                                 </a>
                             </li>
                             <li className="nav-item ">
-                                <a className="nav-link" href="">
+                                <a className="nav-link" href="https://twitter.com/immulegends" target="_blank">
                                     <button className="btn" type="button">
                                         <span><svg width="25" height="21" viewBox="0 0 25 21" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -140,32 +141,32 @@ export default function Navbar() {
 
                                 </a>
                             </li>
-                            <li className="nav-item ">
-                                <a className="nav-link" href="">
-                                    <button className="btn" type="button">
-                                        <span><svg width="21" height="24" viewBox="0 0 21 24" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M9.34616 17.0529L13.1004 13.2989L3.23193 3.43039L5.54358 0.520996L18.4506 13.2389C18.3146 13.4042 18.1944 13.576 18.0489 13.722C16.998 14.7802 15.9441 15.8355 14.8871 16.8879C14.8548 16.9202 14.8238 16.954 14.7823 16.9975L20.4432 22.4252C20.1696 22.4453 19.9268 22.4644 19.684 22.4809C18.6404 22.5521 17.5965 22.623 16.5524 22.6937C16.1003 22.7247 15.6485 22.7609 15.196 22.7863C15.1275 22.7874 15.0611 22.7628 15.0099 22.7174C13.1432 20.8566 11.2786 18.9938 9.41634 17.1289C9.39295 17.1061 9.37159 17.0806 9.34616 17.0529Z"
-                                                fill="currentColor"></path>
-                                            <path
-                                                d="M10.5045 23.4795H10.3679C9.07973 23.4795 7.79152 23.4795 6.50332 23.4795C5.64039 23.4795 4.81102 23.3016 4.03302 22.9357C2.18842 22.0662 0.99802 20.6418 0.581557 18.6388C0.17984 16.7065 0.659357 14.9741 1.92909 13.462C1.9835 13.3975 2.04146 13.3349 2.10223 13.2673C0.999795 12.0517 0.432561 10.6282 0.449596 8.98163C0.462054 7.87767 0.763346 6.85532 1.31914 5.92578L8.69242 13.2991L4.54253 17.449L10.5299 23.4361L10.5045 23.4795Z"
-                                                fill="currentColor"></path>
-                                        </svg></span>
-                                        <strong>Rafflor
-                                        </strong>
-                                        <div id="container-stars">
-                                            <div id="stars"></div>
-                                        </div>
+                                {/* <li className="nav-item ">
+                                    <a className="nav-link" href="">
+                                        <button className="btn" type="button">
+                                            <span><svg width="21" height="24" viewBox="0 0 21 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9.34616 17.0529L13.1004 13.2989L3.23193 3.43039L5.54358 0.520996L18.4506 13.2389C18.3146 13.4042 18.1944 13.576 18.0489 13.722C16.998 14.7802 15.9441 15.8355 14.8871 16.8879C14.8548 16.9202 14.8238 16.954 14.7823 16.9975L20.4432 22.4252C20.1696 22.4453 19.9268 22.4644 19.684 22.4809C18.6404 22.5521 17.5965 22.623 16.5524 22.6937C16.1003 22.7247 15.6485 22.7609 15.196 22.7863C15.1275 22.7874 15.0611 22.7628 15.0099 22.7174C13.1432 20.8566 11.2786 18.9938 9.41634 17.1289C9.39295 17.1061 9.37159 17.0806 9.34616 17.0529Z"
+                                                    fill="currentColor"></path>
+                                                <path
+                                                    d="M10.5045 23.4795H10.3679C9.07973 23.4795 7.79152 23.4795 6.50332 23.4795C5.64039 23.4795 4.81102 23.3016 4.03302 22.9357C2.18842 22.0662 0.99802 20.6418 0.581557 18.6388C0.17984 16.7065 0.659357 14.9741 1.92909 13.462C1.9835 13.3975 2.04146 13.3349 2.10223 13.2673C0.999795 12.0517 0.432561 10.6282 0.449596 8.98163C0.462054 7.87767 0.763346 6.85532 1.31914 5.92578L8.69242 13.2991L4.54253 17.449L10.5299 23.4361L10.5045 23.4795Z"
+                                                    fill="currentColor"></path>
+                                            </svg></span>
+                                            <strong>Rafflor
+                                            </strong>
+                                            <div id="container-stars">
+                                                <div id="stars"></div>
+                                            </div>
 
-                                        <div id="glow">
-                                            <div className="circle"></div>
-                                            <div className="circle"></div>
-                                        </div>
-                                    </button>
+                                            <div id="glow">
+                                                <div className="circle"></div>
+                                                <div className="circle"></div>
+                                            </div>
+                                        </button>
 
-                                </a>
-                            </li>
+                                    </a>
+                                </li> */}
 
 
 

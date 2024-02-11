@@ -16,7 +16,7 @@ export default function Locking() {
     const TOTAL_NFTS = 1212;
     const COLLECTION_NAME = "Immutable Legends"
 
-    const aptosConfig = new AptosConfig({ network: Network.DEVNET });
+    const aptosConfig = new AptosConfig({ network: Network.MAINNET });
     const aptos = new Aptos(aptosConfig);
 
     const { account, signAndSubmitTransaction } = useWallet();
@@ -32,38 +32,27 @@ export default function Locking() {
     })
     const fetchNft = async () => {
         if (!account) return;
-        setTransactionInProgress(true)
         try {
             const ownedToken = await aptos.getOwnedDigitalAssets({ ownerAddress: account.address });
             if (ownedToken.length == 0) return;
-            const nftsToLock = ownedToken.filter((token) => token.current_token_data?.current_collection?.collection_name == COLLECTION_NAME)
-            setNFTs(nftsToLock)
+            const nftsToLock = ownedToken.filter((token) => token.current_token_data?.current_collection?.collection_name == COLLECTION_NAME);
+            const nftsWithImage = nftsToLock.map(async (token) => {
+                return {
+                    ...token,
+                    image: await fetchTokenImage(token?.current_token_data?.token_uri!)
+                }
+            })
+            Promise.all(nftsWithImage).then((images) => {
+                setNFTs(images)
+
+            })
+            setNftsToLock([])
         } catch (error: any) {
             setNFTs([])
             console.log("error: ", error);
-        } finally {
-            setTransactionInProgress(false)
         }
 
     }
-    const onMintClick = async () => {
-        if (!account) return;
-        const randomString = `Immutable Legends #${(Math.floor(Math.random() * 2000) + 1).toString()}`;
-        const transaction: InputTransactionData = {
-            data: {
-                function: `${CREATOR_ADDRESS}::test_nft::mint`,
-                functionArguments: [randomString],
-            }
-        };
-        try {
-            const response = await signAndSubmitTransaction(transaction);
-            await aptos.waitForTransaction({ transactionHash: response.hash })
-            fetchNft()
-        } catch (error: any) {
-            console.log("error: ", error)
-        }
-    }
-
     const onNFTLock = async () => {
         if (!account) return;
         const argument = nftsToLock;
@@ -73,13 +62,17 @@ export default function Locking() {
                 functionArguments: [argument],
             },
         };
+        setTransactionInProgress(true)
         try {
             const response = await signAndSubmitTransaction(transaction);
             await aptos.waitForTransaction({ transactionHash: response.hash })
             setNFTs((prev) => prev.filter((token) => !nftsToLock.includes(token?.current_token_data?.token_name)));
             setNftsToLock([])
+            await fetchViewFunction()
         } catch (error: any) {
             console.log("error: ", error)
+        } finally {
+            setTransactionInProgress(false)
         }
     }
     const nftLockSelect = (token: string) => {
@@ -94,35 +87,54 @@ export default function Locking() {
     }
 
     const fetchViewFunction = async () => {
-        const modules = await aptos.getAccountModules({ accountAddress: LOCK_CONTRACT_ADDRESS! });
-        const moduleExists = modules.some((v) => v.abi?.name == "nft_lockup")
-        if (!moduleExists) return;
-        const viewFnData: LockData = {
-            total_locked: 0,
-            num_locked: 0,
-            num_users_locked: 0
+        try {
+            const modules = await aptos.getAccountModules({ accountAddress: LOCK_CONTRACT_ADDRESS! });
+            const moduleExists = modules.some((v) => v.abi?.name == "nft_lockup")
+            if (!moduleExists) return;
+            const viewFnData: LockData = {
+                total_locked: 0,
+                num_locked: 0,
+                num_users_locked: 0
+            }
+            const totalLockedTxn: InputViewRequestData = {
+                function: `${LOCK_CONTRACT_ADDRESS}::nft_lockup::total_locked`,
+                functionArguments: [],
+            }
+            const usersLockedTxn: InputViewRequestData = {
+                function: `${LOCK_CONTRACT_ADDRESS}::nft_lockup::num_users_locked`,
+                functionArguments: [],
+            }
+            if (account) {
+                const userLockedTxn: InputViewRequestData = {
+                    function: `${LOCK_CONTRACT_ADDRESS}::nft_lockup::num_locked`,
+                    functionArguments: [account?.address],
+                };
+                const num_locked = await aptos.view({ payload: userLockedTxn });
+                viewFnData.num_locked = Number(num_locked.at(0));
+            }
+            const total_locked = await aptos.view({ payload: totalLockedTxn });
+            viewFnData.total_locked = Number(total_locked.at(0));
+            const num_users_locked = await aptos.view({ payload: usersLockedTxn });
+            viewFnData.num_users_locked = Number(num_users_locked.at(0));
+            setViewData(viewFnData);
+        } catch (error: any) {
+            console.log("error: ", error)
         }
-        const totalLockedTxn: InputViewRequestData = {
-            function: `${LOCK_CONTRACT_ADDRESS}::nft_lockup::total_locked`,
-            functionArguments: [],
+    }
+    const fetchTokenImage = async (str: string) => {
+        try {
+            const ipfsLink = str;
+            const replacedLink = ipfsLink.replace("ipfs://", "");
+            const response = await fetch(`https://ipfs.io/ipfs/${replacedLink}`);
+            if (response.ok) {
+                const metadata = await response.json();
+                return metadata.image!.replace("ipfs://", "https://nftstorage.link/ipfs/");
+            }
+            return null;
+        } catch (error) {
+            return str;
         }
-        const usersLockedTxn: InputViewRequestData = {
-            function: `${LOCK_CONTRACT_ADDRESS}::nft_lockup::num_users_locked`,
-            functionArguments: [],
-        }
-        if (account) {
-            const userLockedTxn: InputViewRequestData = {
-                function: `${LOCK_CONTRACT_ADDRESS}::nft_lockup::num_locked`,
-                functionArguments: [account?.address],
-            };
-            const num_locked = await aptos.view({ payload: userLockedTxn });
-            viewFnData.num_locked = Number(num_locked.at(0));
-        }
-        const total_locked = await aptos.view({ payload: totalLockedTxn });
-        viewFnData.total_locked = Number(total_locked.at(0));
-        const num_users_locked = await aptos.view({ payload: usersLockedTxn });
-        viewFnData.num_users_locked = Number(num_users_locked.at(0));
-        setViewData(viewFnData);
+
     }
     useEffect(() => {
         fetchNft()
@@ -133,21 +145,21 @@ export default function Locking() {
             <section className="staking">
                 <div className="container">
                     <div className="main-staking">
-                        <h2>Lock you LEGENDS</h2>
-                        <h6>Lock and Burn your Legend to earn new <b>LEGEND</b> with multiple utilities</h6>
+                        <h2>Lock your LEGENDS</h2>
+                        <h6>Lock and Burn your old Legend to earn new <b>LEGEND</b> with multiple utilities</h6>
 
                         <WalletSelector />
-                        <button className="btn" type="button" onClick={onMintClick}>
-                            <strong>Test NFT Mint</strong>
-                            <div id="container-stars">
-                                <div id="stars"></div>
-                            </div>
+                        {/* <button className="btn" type="button" onClick={onMintClick}>
+                                <strong>Test NFT Mint</strong>
+                                <div id="container-stars">
+                                    <div id="stars"></div>
+                                </div>
 
-                            <div id="glow">
-                                <div className="circle"></div>
-                                <div className="circle"></div>
-                            </div>
-                        </button>
+                                <div id="glow">
+                                    <div className="circle"></div>
+                                    <div className="circle"></div>
+                                </div>
+                            </button> */}
                     </div>
 
                     <main className="main flow">
@@ -156,7 +168,7 @@ export default function Locking() {
                             <div className="cards__inner">
                                 <div className="cards__card card">
                                     <ul>
-                                        <li>No. of Legends Locked
+                                        <li>Legends Locked
                                         </li>
                                     </ul>
                                     <h2>{viewData.total_locked}</h2>
@@ -196,13 +208,13 @@ export default function Locking() {
                         {
                             NFTs.map((tokendata, index) => (
                                 <div className="card" key={index}>
-                                    <div className="card-img">
+                                    <div className="card-img" style={{ backgroundImage: `url('${tokendata.image}')` }}>
 
                                     </div>
                                     <div className="card-textContent" >
                                         <h3>{tokendata?.current_token_data?.token_name}</h3>
                                         <div className="card-btn">
-                                            <button className="button" onClick={() => nftLockSelect(tokendata?.current_token_data?.token_name)}>
+                                            <button className="button" disabled={transactionInProgress} onClick={() => nftLockSelect(tokendata?.current_token_data?.token_name)}>
                                                 {nftsToLock.includes(tokendata?.current_token_data?.token_name) ? 'Remove NFT' : 'Add NFT'}
                                             </button>
                                         </div>
@@ -213,11 +225,21 @@ export default function Locking() {
                             ))
                         }
                     </div>
-                    <button className="button" data-bs-toggle="modal" data-bs-target="#lock-nft-modal">Confirm NFT Locking</button>
+                    {
+                        nftsToLock.length > 0
+                        &&
+                        <div className="d-flex justify-content-center">
+                            <button className="button nft-fire-btn" onClick={() => onNFTLock()}>
+                                <img src="/fire.svg" />
+                            </button>
+                        </div>
+
+                    }
+
                 </section>
 
             }
-            <div className="modal fade" id="lock-nft-modal" tabIndex={-1} aria-labelledby="lockNftModalLabel" aria-hidden="true">
+            {/* <div className="modal fade" id="lock-nft-modal" tabIndex={-1} aria-labelledby="lockNftModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
 
@@ -232,7 +254,7 @@ export default function Locking() {
 
                     </div>
                 </div>
-            </div>
+            </div> */}
         </React.Fragment>
     )
 }
