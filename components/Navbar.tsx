@@ -2,6 +2,7 @@
 import React from "react";
 import '@splidejs/react-splide/css';
 import Link from "next/link";
+import Image from "next/image";
 export default function Navbar() {
 
 
@@ -76,7 +77,7 @@ export default function Navbar() {
                             <div className="menu-bar3"></div>
                         </div> */}
                         <Link className="navbar-brand" href="/">
-                            <img src="/logo.jpeg" className="logo" />
+                            <Image src="/logo.jpeg" className="logo"  height={"64"} width={"64"} alt="logo" />
                         </Link>
 
                         <div className="bottom-bar">
