@@ -195,7 +195,6 @@ body {
   letter-spacing: 1.5px;
   padding-right: 0.7rem !important;
   padding-left: 0.7rem !important;
-
 }
 
 a.dropdown-item {
@@ -341,7 +340,7 @@ nav#main-nav .btn {
   cursor: pointer;
   transition-duration: 1s;
   overflow: hidden;
-  margin-bottom: 0px;
+  margin-bottom: 15px;
   transition-duration: 1s;
   transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
   padding: 0px 3px !important;
@@ -1625,6 +1624,7 @@ section.nft-show #stars::before {
   }
 
   .staking .cards__card.card h2 {
+    font-family: 'Shadows Into Light', cursive;
     font-size: 29px;
   }
 
@@ -1647,6 +1647,14 @@ section.nft-show #stars::before {
     font-size: 83px;
   }
 
+  section.staking .main-staking h6 {
+    font-size: 40px;
+    width: 75%;
+    font-family: 'Shadows Into Light', cursive;
+    line-height: 56px;
+    margin-bottom: 3rem;
+    color: #272727;
+  }
 
   section.nft-show .container {
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1706,9 +1714,10 @@ section.nft-show #stars::before {
   section.staking .main-staking h6 {
     font-size: 33px;
     width: 100%;
+    font-family: 'Shadows Into Light', cursive;
     line-height: 45px;
     margin-bottom: 3rem;
-
+    color: #272727;
   }
 
   .staking .cards__inner {
@@ -1741,7 +1750,12 @@ section.nft-show #stars::before {
   }
 
   section.staking .main-staking h6 {
-    font-size: 25px;
+    font-size: 27px;
+    width: 100%;
+    font-family: 'Shadows Into Light', cursive;
+    line-height: 40px;
+    margin-bottom: 3rem;
+    color: #272727;
   }
 
   section.staking {
@@ -2435,7 +2449,7 @@ section.footer h3 {
 .banner-home .button {
   width: 100%;
   display: flex;
-  padding: 0.2em 1rem !important;
+  padding: 0.2em 1rem;
   cursor: pointer;
   gap: 0.4rem;
   font-weight: bold;
@@ -2444,13 +2458,12 @@ section.footer h3 {
   background: linear-gradient(15deg, #880088, #aa2068, #cc3f47, #de6f3d, #f09f33, #de6f3d, #cc3f47, #aa2068, #880088) no-repeat;
   background-size: 300%;
   color: #fff;
-  border: none !important;
+  border: none;
   background-position: left center;
   box-shadow: 0 30px 10px -20px rgba(0, 0, 0, .2);
   transition: background .3s ease;
   justify-content: center;
   align-items: center;
-  
 }
 
 
@@ -3150,11 +3163,12 @@ section.testimonial.text-center::after {
   }
 
   .staking .cards__card.card h2 {
+    font-family: 'Shadows Into Light', cursive;
     font-size: 29px;
   }
 
   .staking .cards__card.card ul li {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 500;
   }
 
@@ -3172,6 +3186,14 @@ section.testimonial.text-center::after {
     font-size: 83px;
   }
 
+  section.staking .main-staking h6 {
+    font-size: 40px;
+    width: 75%;
+    font-family: 'Shadows Into Light', cursive;
+    line-height: 56px;
+    margin-bottom: 3rem;
+    color: #272727;
+  }
 
 
 }
@@ -3193,7 +3215,13 @@ section.testimonial.text-center::after {
     font-size: 13px;
   }
 
- 
+  .wallet-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 14rem;
+  }
+
   button.btn {
     width: unset !important;
     padding: 20px;
@@ -3205,11 +3233,9 @@ section.testimonial.text-center::after {
 
   section.nft-show .card .card-textContent .card-btn button {
     font-size: 15px;
-    /* padding: 0.8rem 0.5rem !important; */
+    padding: 0.8rem 0.5rem !important;
   }
-  .button span {
-    padding: 5px 0px;
-  }
+
   .bottom-bar {
     display: block;
   }
@@ -3245,7 +3271,7 @@ section.testimonial.text-center::after {
     display: flex;
   }
 
-  /* .wallet-button {
+  .wallet-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -3255,34 +3281,25 @@ section.testimonial.text-center::after {
 
   .wallet-button span {
     backdrop-filter: blur(5rem);
-  } */
-  
-  section.staking .main-staking h6 {
-    font-size: 22px;}
-    section.footer h3 {
-      font-size: 18px;
-    }
-
-
-}
-
-@media (max-width: 835.98px) {
-  section.nft-show .card {
-    width: 100%;
-    min-height: 30rem;
-}
-  .wallet-connect-button {
-    width: 22rem !important; 
   }
-  .wallet-modal-title {
-    text-align: center;
-    font-size: 3.5rem !important;
-}
-.wallet-button {
-  width: 30rem;
-}
+
+  .wallet-connect-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28rem !important;
+    height: 6rem !important;
+    font-size: 15px !important;
+  }
+
+  .wallet-connect-button span {
+    backdrop-filter: blur(5rem);
+    font-size: 15px !important;
+
+  }
 
 }
+
 @media (max-width: 767.98px) {
   section.staking .main-staking h2 {
     font-size: 65px;
@@ -3293,11 +3310,15 @@ section.testimonial.text-center::after {
     display: flex;
     gap: 30px;
   }
+
   section.staking .main-staking h6 {
-    font-size: 26px;
+    font-size: 33px;
     width: 100%;
+    font-family: 'Shadows Into Light', cursive;
     line-height: 45px;
-}
+    margin-bottom: 3rem;
+    color: #272727;
+  }
 
   .staking .cards__inner {
     gap: 1rem;
@@ -3331,13 +3352,16 @@ section.testimonial.text-center::after {
 
 @media (max-width: 567.98px) {
   section.staking .main-staking h2 {
-    font-size: 48px;
+    font-size: 45px;
   }
 
   section.staking .main-staking h6 {
-    font-size: 21px;
-        line-height: 40px;
-
+    font-size: 27px;
+    width: 100%;
+    font-family: 'Shadows Into Light', cursive;
+    line-height: 40px;
+    margin-bottom: 3rem;
+    color: #272727;
   }
 
   section.staking {
