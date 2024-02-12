@@ -295,12 +295,13 @@ a.dropdown-item {
 }
 
 nav#main-nav {
-
-  background: #000000;
+  border-bottom: 1px solid;
+  background: #070707;
 }
 
 .navbar-brand .logo {
   width: 64px;
+  border-radius: 100%;
 }
 
 nav#main-nav .container {
@@ -325,43 +326,58 @@ nav#main-nav .btn span svg {
 }
 
 nav#main-nav .btn {
+  height: 45px !important;
+  border: none;
+  border-radius: 6rem;
+  background: linear-gradient(to right, #77530a, #ffd277, #77530a, #77530a, #ffd277, #77530a);
+  background-size: 250%;
+  background-position: left;
+  color: #ffd277;
+  position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 11em;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: 1s;
   overflow: hidden;
-  height: 3rem;
-  background-size: 300% 300%;
-  backdrop-filter: blur(1rem);
-  border-radius: 5rem;
-  transition: 0.5s;
-  animation: gradient_301 5s ease infinite;
-  border: double 4px transparent;
-  background-image: linear-gradient(#212121, #212121), linear-gradient(137.48deg, #ffdb3b 10%, #FE53BB 45%, #8F51EA 67%, #0044ff 87%);
-  background-origin: border-box;
-  background-clip: content-box, border-box;
+  margin-bottom: 15px;
+  transition-duration: 1s;
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  padding: 0px 3px !important;
 }
 
-nav#main-nav #container-stars {
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  transition: 0.5s;
-  backdrop-filter: blur(1rem);
-  border-radius: 5rem;
+nav#main-nav span {
+  border-radius: 6rem;
+  transition-duration: 1s;
+  background-color: rgb(0 0 0 / 64%);
+  background-size: 200%;
+  padding: 8px 15px;
+  color: #ffd277;
+  letter-spacing: 3px;
+  font-weight: 600;
+  /* width: 100%; */
 }
 
 nav#main-nav strong {
-  z-index: 2;
-
-  font-size: 17px;
-  letter-spacing: 5px;
-  color: #FFFFFF;
-  text-shadow: 0 0 4px white;
+  fill: #ffd277;
+  color: #ffd277;
 }
 
+nav#main-nav strong {
+
+  color: #ffd277;
+  letter-spacing: 3px;
+  font-weight: 600;
+  /* width: 100%; */
+}
+
+nav#main-nav .btn:hover {
+  transform: scale(1.1) !important;
+  background-size: 250% !important;
+
+}
+
+/* 
 nav#main-nav #glow {
   position: absolute;
   display: flex;
@@ -440,7 +456,7 @@ nav#main-nav #stars::before {
   background-image: radial-gradient(#ffffff 1px, transparent 1%);
   background-size: 50px 50px;
   opacity: 0.5;
-}
+} */
 
 @keyframes animStar {
   from {
@@ -496,7 +512,8 @@ nav#main-nav #stars::before {
 section.staking {
   float: left;
   width: 100%;
-  background: #c8c80038;
+  /* background: #c8c80038; */
+  background-color: #000000;
   padding: 100px 0px;
   overflow: hidden;
   /* height: 100vh; */
@@ -506,7 +523,7 @@ section.staking {
 section.staking::after {
   position: absolute;
   content: "00000000000000";
-  color: rgba(255, 255, 255, 0.548);
+  color: rgb(255 255 255 / 13%);
   font-size: 200px;
   top: 0;
   right: 0;
@@ -518,89 +535,48 @@ section.staking::after {
 }
 
 .staking .cards__card.card h2 {
-  font-family: 'Shadows Into Light', cursive;
-  font-weight: 800;
+  /* font-family: 'Shadows Into Light', cursive; */
+  font-weight: 700;
 }
 
 
 
 .wallet-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 16rem;
+  height: 45px !important;
+  border: none;
+  border-radius: 6rem;
+  background: linear-gradient(to right, #77530a, #ffd277, #77530a, #77530a, #ffd277, #77530a);
+  background-size: 250%;
+  background-position: left;
+  color: #ffd277;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: 1s;
   overflow: hidden;
-  height: 3rem;
-  background-size: 300% 300%;
-  backdrop-filter: blur(1rem);
-  border-radius: 5rem !important;
-  transition: 0.5s;
-  animation: gradient_301 5s ease infinite;
-  border: double 4px transparent;
-  background-image: linear-gradient(#212121, #212121), linear-gradient(137.48deg, #ffdb3b 10%, #FE53BB 45%, #8F51EA 67%, #0044ff 87%);
-  background-origin: border-box;
-  background-clip: content-box, border-box;
-  z-index: 2;
-  font-size: 17px !important;
-  letter-spacing: 5px !important;
-  color: #FFFFFF;
-  text-shadow: 0 0 4px white;
-  font-weight: bold;
-  padding: 6px 8px !important;
+  margin-bottom: 15px;
+  padding: 10px 3px !important;
 }
 
-.wallet-button {
-  padding: 10px 20px;
-  height: 3rem !important;
-  font-size: 16px;
-  background-color: #3f67ff;
-  color: white;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  margin-bottom: 15px !important;
-}
 
 .wallet-button span {
-  position: absolute;
-  z-index: -1;
+  color: #ffd277;
+  border-radius: 6rem;
+  transition-duration: 1s;
+  background-color: rgb(0 0 0 / 64%);
+  background-size: 200%;
+  padding: 8px 0px;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
-  transition: 0.5s;
-  backdrop-filter: blur(1rem);
-  border-radius: 5rem !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* padding: 8px 30px !important; */
+  letter-spacing: 3px;
+  font-weight: 600;
 }
 
 
-.wallet-button ::after {
-  content: "";
-  position: absolute;
-  top: -10rem;
-  left: -100rem;
-  width: 100%;
-  height: 100%;
-  animation: animStarRotate 90s linear infinite;
-}
 
-.wallet-button ::after {
-  background-image: radial-gradient(#ffffff 1px, transparent 1%);
-  background-size: 50px 50px;
-}
 
-.wallet-button ::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -50%;
-  width: 170%;
-  height: 500%;
-  animation: animStar 60s linear infinite;
-}
 
 .wallet-button ::before {
   background-image: radial-gradient(#ffffff 1px, transparent 1%);
@@ -609,16 +585,10 @@ section.staking::after {
 }
 
 :where(.css-dev-only-do-not-override-1rqnfsa).ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
-  border: double 4px transparent !important;
-  background-image: linear-gradient(#212121, #212121), linear-gradient(137.48deg, #ffdb3b 10%, #FE53BB 45%, #8F51EA 67%, #0044ff 87%) !important;
-  background-origin: border-box !important;
-  background-clip: content-box, border-box !important;
-  z-index: 2;
-  font-size: 17px !important;
-  letter-spacing: 5px !important;
-  color: #FFFFFF !important;
-  /* text-shadow: 0 0 4px white !important;  */
-  font-weight: bold !important;
+  background: linear-gradient(to right, #77530a, #ffd277, #77530a, #77530a, #ffd277, #77530a) !important;
+  background-size: 250% !important;
+  background-position: left !important;
+  color: #ffd277 !important;
   transform: scale(1.1) !important;
 }
 
@@ -631,83 +601,42 @@ section.staking::after {
 }
 
 .wallet-connect-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 16rem;
+  height: 45px !important;
+  border: none;
+  border-radius: 6rem;
+  background: linear-gradient(to right, #77530a, #ffd277, #77530a, #77530a, #ffd277, #77530a);
+  background-size: 250%;
+  background-position: left;
+  color: #ffd277;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: 1s;
   overflow: hidden;
-  height: 3rem;
-  background-size: 300% 300%;
-  backdrop-filter: blur(1rem);
-  border-radius: 5rem !important;
-  transition: 0.5s;
-  animation: gradient_301 5s ease infinite;
-  border: double 4px transparent;
-  background-image: linear-gradient(#212121, #212121), linear-gradient(137.48deg, #ffdb3b 10%, #FE53BB 45%, #8F51EA 67%, #0044ff 87%);
-  background-origin: border-box;
-  background-clip: content-box, border-box;
-  z-index: 2;
-  font-size: 17px !important;
-  letter-spacing: 5px !important;
-  color: #FFFFFF;
-  text-shadow: 0 0 4px white;
-  font-weight: bold;
-  padding: 6px 8px !important;
+  /* margin-bottom: 15px; */
+  padding: 5px 4px !important;
 
 }
 
-.wallet-connect-button {
-  padding: 10px 20px;
-  height: 3rem !important;
-  font-size: 16px;
-  background-color: #3f67ff;
-  color: white;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  margin-bottom: 0px !important;
-}
 
 .wallet-connect-button span {
-  position: absolute;
-  z-index: -1;
+  color: #ffd277;
+  border-radius: 6rem;
+  transition-duration: 1s;
+  background-color: rgb(0 0 0 / 64%);
+  background-size: 200%;
+  padding: 8px 0px;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
-  transition: 0.5s;
-  backdrop-filter: blur(1rem);
-  border-radius: 5rem !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* padding: 8px 30px !important; */
+  letter-spacing: 3px;
+  font-weight: 600;
 }
 
 
-.wallet-connect-button ::after {
-  content: "";
-  position: absolute;
-  top: -10rem;
-  left: -100rem;
-  width: 100%;
-  height: 100%;
-  animation: animStarRotate 90s linear infinite;
-}
 
-.wallet-connect-button ::after {
-  background-image: radial-gradient(#ffffff 1px, transparent 1%);
-  background-size: 50px 50px;
-}
 
-.wallet-connect-button ::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -50%;
-  width: 170%;
-  height: 500%;
-  animation: animStar 60s linear infinite;
-}
 
 .wallet-connect-button ::before {
   background-image: radial-gradient(#ffffff 1px, transparent 1%);
@@ -757,17 +686,17 @@ section.staking .main-staking h2 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: 'Shadows Into Light', cursive;
-  font-weight: 700;
+  font-weight: bold;
   color: #0a0a0a;
 }
 
 section.staking .main-staking h6 {
-  font-size: 40px;
+  font-size: 31px;
   width: 60%;
-  font-family: 'Shadows Into Light', cursive;
-  line-height: 56px;
+  /* font-family: 'Shadows Into Light', cursive; */
+  line-height: 48px;
   margin-bottom: 3rem;
-  color: #272727;
+  color: #fff;
 }
 
 .staking strong {
@@ -951,9 +880,11 @@ ul {
   grid-template-rows: auto auto auto 1fr;
   align-items: start;
   color: #000000;
-  background-color: #ffffff;
+  /* --lightness: 95%; */
+  background: #face00;
   border: 1px solid #eceff133;
   border-radius: 15px;
+
 }
 
 .staking .card:nth-child(1) {
@@ -1050,12 +981,12 @@ ul {
 
 .staking .card:hover {
   --lightness: 95%;
-  background: #e7a2178f;
+  background: #fff;
 }
 
-.staking .cards__card.card h2 {
+/* .staking .cards__card.card h2 {
   font-family: 'Shadows Into Light', cursive;
-}
+} */
 
 .staking .cards__card.card ul {
   margin: 0;
@@ -1077,15 +1008,15 @@ section.nft-show {
   float: left;
   width: 100%;
   padding: 50px 0px;
-  background: #0f0f0f;
+  background: #FCED3D;
 }
 
 section.nft-show .card {
   display: flex;
   flex-direction: column;
-  background-color: #FBFEF8;
+  background-color: #000;
   width: 100%;
-  min-height: 25rem;
+  min-height: 22rem;
   border-radius: 1rem;
   padding: 0.5rem;
 
@@ -1104,7 +1035,7 @@ section.nft-show .card .card-img {
 
 section.nft-show .container {
   /* display: flex; */
-  gap: 20px;
+  gap: 10px;
   flex-wrap: wrap;
   display: grid;
   justify-content: flex-start;
@@ -1124,6 +1055,7 @@ section.nft-show .card .card-textContent {
 section.nft-show .card .card-textContent h3 {
   font-weight: 600;
   font-size: 20px;
+  color: #face00;
 }
 
 section.nft-show .card .card-textContent .card-info {
@@ -1179,7 +1111,12 @@ section.nft-show .card .card-textContent .card-btn button {
   width: 100%;
   transition: 0.3s ease-in;
   justify-content: center;
-  padding: 1rem 0.5rem !important;
+  /* padding: 0.8rem 0.5rem !important; */
+  display: flex;
+  padding: 2px !important;
+  justify-content: center;
+  align-items: center;
+  border: none !important;
 }
 
 
@@ -1413,25 +1350,44 @@ section.nft-show #stars::before {
   font-weight: bold;
   border-radius: 30px;
   text-shadow: 2px 2px 3px rgb(136 0 136 / 50%);
-  background: linear-gradient(15deg, #880088, #aa2068, #cc3f47, #de6f3d, #f09f33, #de6f3d, #cc3f47, #aa2068, #880088) no-repeat;
+  /* background: linear-gradient(15deg, #880088, #aa2068, #cc3f47, #de6f3d, #f09f33, #de6f3d, #cc3f47, #aa2068, #880088) no-repeat; */
   background-size: 300%;
+  background: linear-gradient(to right, #77530a, #ffd277, #77530a, #77530a, #ffd277, #77530a);
+  background-size: 250%;  border: 0.555555px solid !important;
   color: #fff;
   border: none;
   background-position: left center;
   box-shadow: 0 30px 10px -20px rgba(0, 0, 0, .2);
   transition: background .3s ease;
+  padding: 0 3px !important;
+}
+
+.button span {
+  color: #ffd277;
+  border-radius: 6rem;
+  transition-duration: 1s;
+  background-color: rgb(0 0 0 / 64%);
+  background-size: 200%;
+  padding: 8px 0px;
+  width: 100%;
+  letter-spacing: 3px;
+  font-weight: 600;
 }
 
 .nft-fire-btn {
-  margin-left: 15px;
+  margin-left: 30px;
   padding: 8px 0px !important;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 100%;
+  width: 65px !important;
+  height: 65px;
+  background: #000 !important;
 }
 
 .nft-fire-btn img {
-  width: 22% !important;
+  width: 60% !important;
 }
 
 .button:hover {
@@ -2248,9 +2204,9 @@ section.footer {
 }
 
 section.footer h3 {
-  font-size: 28px;
+  font-size: 22px;
   color: black;
-  font-family: 'Shadows Into Light', cursive;
+  /* font-family: 'Shadows Into Light', cursive; */
   font-weight: 800;
 }
 
@@ -3265,6 +3221,7 @@ section.testimonial.text-center::after {
     align-items: center;
     width: 14rem;
   }
+
   button.btn {
     width: unset !important;
     padding: 20px;
@@ -3273,10 +3230,11 @@ section.testimonial.text-center::after {
   section.staking::after {
     display: none;
   }
+
   section.nft-show .card .card-textContent .card-btn button {
     font-size: 15px;
     padding: 0.8rem 0.5rem !important;
-}
+  }
 
   .bottom-bar {
     display: block;
@@ -3312,30 +3270,33 @@ section.testimonial.text-center::after {
   .bottom-bar {
     display: flex;
   }
-  
+
   .wallet-button {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 28rem !important;
     height: 6rem !important;
-}
-.wallet-button span {
-  backdrop-filter: blur(5rem);
-}
-.wallet-connect-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 28rem !important;
-  height: 6rem !important;
-  font-size: 15px !important;
-}
-.wallet-connect-button span {
-backdrop-filter: blur(5rem);
-font-size: 15px !important;
+  }
 
-}
+  .wallet-button span {
+    backdrop-filter: blur(5rem);
+  }
+
+  .wallet-connect-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28rem !important;
+    height: 6rem !important;
+    font-size: 15px !important;
+  }
+
+  .wallet-connect-button span {
+    backdrop-filter: blur(5rem);
+    font-size: 15px !important;
+
+  }
 
 }
 
@@ -3385,7 +3346,7 @@ font-size: 15px !important;
 
   section.nft-show .container {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    
+
   }
 }
 

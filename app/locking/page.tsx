@@ -136,6 +136,7 @@ export default function Locking() {
         }
 
     }
+
     useEffect(() => {
         fetchNft()
         fetchViewFunction()
@@ -149,17 +150,6 @@ export default function Locking() {
                         <h6>Lock and Burn your old Legend to earn new <b>LEGEND</b> with multiple utilities</h6>
 
                         <WalletSelector />
-                        {/* <button className="btn" type="button" onClick={onMintClick}>
-                                <strong>Test NFT Mint</strong>
-                                <div id="container-stars">
-                                    <div id="stars"></div>
-                                </div>
-
-                                <div id="glow">
-                                    <div className="circle"></div>
-                                    <div className="circle"></div>
-                                </div>
-                            </button> */}
                     </div>
 
                     <main className="main flow">
@@ -215,7 +205,9 @@ export default function Locking() {
                                         <h3>{tokendata?.current_token_data?.token_name}</h3>
                                         <div className="card-btn">
                                             <button className="button" disabled={transactionInProgress} onClick={() => nftLockSelect(tokendata?.current_token_data?.token_name)}>
-                                                {nftsToLock.includes(tokendata?.current_token_data?.token_name) ? 'Remove NFT' : 'Add NFT'}
+                                                <span>
+                                                    {nftsToLock.includes(tokendata?.current_token_data?.token_name) ? 'Remove NFT' : 'Add NFT'}
+                                                </span>
                                             </button>
                                         </div>
                                     </div>
@@ -228,14 +220,10 @@ export default function Locking() {
                     {
                         nftsToLock.length > 0
                         &&
-                        <div className="d-flex justify-content-center">
-                            <button className="button nft-fire-btn" onClick={() => onNFTLock()}>
-                                <img src="/fire.svg" />
-                            </button>
-                        </div>
-
+                        <button className="button nft-fire-btn" onClick={() => onNFTLock()}>
+                            <img src="/fire.svg" />
+                        </button>
                     }
-
                 </section>
 
             }
