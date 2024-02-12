@@ -243,6 +243,11 @@ export default function Locking() {
                     </div>
                 </div>
             </div> */}
+                 <section className="footer">
+  <div className="container">
+    <h3>Copyright 2024 © Immutable labs All rights reserved.</h3>
+  </div>
+</section>
         </React.Fragment>
     )
 }
