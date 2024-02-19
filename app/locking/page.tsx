@@ -5,6 +5,7 @@ import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design";
 import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
 import { Aptos, AptosConfig, InputViewRequestData, Network } from "@aptos-labs/ts-sdk";
 import { InputTransactionData, useWallet } from "@aptos-labs/wallet-adapter-react";
+import Image from "next/image";
 type LockData = {
     total_locked: number,
     num_locked: number, //locked by user
@@ -221,7 +222,7 @@ export default function Locking() {
                         nftsToLock.length > 0
                         &&
                         <button className="button nft-fire-btn" onClick={() => onNFTLock()}>
-                            <img src="/fire.svg" />
+                            <Image height={100} width={100} src="/fire.svg" alt="not-found" />
                         </button>
                     }
                 </section>
