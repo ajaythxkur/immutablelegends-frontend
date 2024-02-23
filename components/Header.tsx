@@ -9,7 +9,7 @@ const Header: React.FC = () => {
 
     const [loginModalShow, setLoginModalShow] = useState<boolean>(false);
     const [signUpModalShow, setSignUpModalShow] = useState<boolean>(false);
-    const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
+    const [isCollapsed, setIsCollapsed] = useState<boolean>(true);
 
     const handleLoginOpen = () => {
         setLoginModalShow(true);
@@ -53,10 +53,6 @@ const Header: React.FC = () => {
             icon: "/discord.svg",
             href: "",
         },
-        {
-            icon: "/magiceden.svg",
-            href: "",
-        }
     ]
 
     return (
@@ -68,9 +64,8 @@ const Header: React.FC = () => {
                     </a>
                 </div>
 
-                <nav className="nav">
-                    {
-                        routes.map((v, i) => (
+                {/* <nav className="nav">
+                    { routes.map((v, i) => (
                             <Link
                                 href={v.href}
                                 className={pathname == v.href ? "nav-item is-active" : "nav-item active"}
@@ -80,7 +75,7 @@ const Header: React.FC = () => {
                         ))
                     }
                     <span className="nav-indicator"></span>
-                </nav>
+                </nav> */}
                 <div className="icon-navs">
                     <ul>
                         {
@@ -142,27 +137,48 @@ const Header: React.FC = () => {
             </nav>
             <div className="side-bar">
                 <div className="container">
-                    {/* <div className="content">
-                <button >
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </button>
-            </div> */}
                     <div
                         className={isCollapsed ? "sidebar collapsed" : "sidebar"}
                         id="sidebar"
                     >
-                        {/* <div id="head">
-                    <p className="logo">Nasemul</p>
-                </div> */}
-                        {/* <ul className="list">
+                        <ul className="list">
             <li
                 className="sidebar-close-li" 
               >
              <img onClick={toggleSidebar} src="/close.svg" alt=""/>
               </li>
-              <li
+              {
+                        routes.map((v, i) => (
+                          <>
+                          <li
+                          onClick={() => localStorage.setItem("activeClass", "1")}
+                          // className={activeClass == "1" ? "active" : ""}
+                        >
+                        <Link
+                                href={v.href}
+                                className={pathname == v.href ? "nav-item is-active" : "nav-item active"}
+                                active-color="#CEBB73" key={i}>
+                                {v.name}
+                            </Link>
+                        </li>
+                        </>
+                      
+                        ))
+                    }
+                    <li className="flex-li">
+                    {
+                            socials.map((v, i) => (
+                              <>
+                                {/* // <li className="res-none" key={i}> */}
+                                    <a href={v.href}>
+                                        <Image src={v.icon} alt="not-found" height={100} width={100} />
+                                    </a>
+                                {/* </li> */}
+                                </>
+                            ))
+                        }
+                    </li>
+              {/* <li
                 onClick={() => localStorage.setItem("activeClass", "1")}
                 className={activeClass == "1" ? "active" : ""}
               >
@@ -173,8 +189,8 @@ const Header: React.FC = () => {
                 className={activeClass == "2" ? "active" : ""}
               >
                 <Link href="/about">About</Link>
-              </li>
-              <li
+              </li> */}
+              {/* <li
                 onClick={() => localStorage.setItem("activeClass", "3")}
                 className={activeClass == "3" ? "active" : ""}
               >
@@ -191,7 +207,7 @@ const Header: React.FC = () => {
                 className={activeClass == "5" ? "active" : ""}
               >
                 <Link href="/contact">Contact</Link>
-              </li>
+              </li> */}
               <li >
                 <a>
               <button className="form-btn" onClick={handleLoginOpen}>
@@ -199,7 +215,7 @@ const Header: React.FC = () => {
               </button>
               </a>
             </li>
-            </ul> */}
+            </ul>
                     </div>
                 </div>
             </div>

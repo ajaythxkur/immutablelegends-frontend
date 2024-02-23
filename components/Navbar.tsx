@@ -9,7 +9,7 @@ export default function Navbar() {
         <React.Fragment>
 
 
-            <nav id="main-nav" className="navbar-expand-xl ">
+            <nav  className="navbar-expand-xl   navbar-section">
                 <div className="navbar container-fluid">
                     <div className="container ">
                         <Link className="navbar-brand" href="/">
@@ -39,7 +39,7 @@ export default function Navbar() {
 
                             <li className="nav-item ">
                                 <a className="nav-link" target="_blank" href="https://discord.com/invite/XV2jC22epZ">
-                                    <button className="btn" type="button">
+                                    <button className="btn " id="btn-navbar-sec" type="button">
                                         <span>
                                             <svg width="23" height="24" viewBox="0 0 23 26" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -87,7 +87,7 @@ export default function Navbar() {
                             <li className="nav-item ">
                                 <a className="nav-link" target="_blank" href="https://www.topaz.so/collection/Immutable-Legends-8869f49c4a">
                                     <button className="btn" type="button">
-                                        <span><svg xmlns="http://www.w3.org/2000/svg" width="25" height="21" viewBox="0 -960 960 960" fill="#FFF"><path d="M160-720v-80h640v80H160Zm0 560v-240h-40v-80l40-200h640l40 200v80h-40v240h-80v-240H560v240H160Zm80-80h240v-160H240v160Zm-38-240h556-556Zm0 0h556l-24-120H226l-24 120Z" /></svg>
+                                        <span><svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 -960 960 960" fill="#FFF"><path d="M160-720v-80h640v80H160Zm0 560v-240h-40v-80l40-200h640l40 200v80h-40v240h-80v-240H560v240H160Zm80-80h240v-160H240v160Zm-38-240h556-556Zm0 0h556l-24-120H226l-24 120Z" /></svg>
                                             <strong>Topaz
                                             </strong>
                                         </span>
