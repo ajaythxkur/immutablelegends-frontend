@@ -205,7 +205,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0px;
+  gap: 16px;
 }
 
 #main-nav .react-header-dropdown {
@@ -511,6 +511,8 @@ body {
 .flex-li {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  gap: 28px;
 }
 .flex-li a{
   padding: 0px !important;
@@ -2415,7 +2417,7 @@ section.nft-show #stars::before {
   }
 
   .sidebar-close-li img {
-    width: 24px;
+    width: 44px;
   }
 
   .banner-home {
@@ -2832,17 +2834,15 @@ section.nft-show #stars::before {
 }
 
 #play-pause-button {
-  display: none !important;
   position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
   left: 5%;
   bottom: 5%;
-  background: #5b37eb;
+  background: #FFF;
   padding: 12px;
   border-radius: 50%;
-  box-shadow: rgba(120, 46, 240, 0.4) 5px 5px, rgba(120, 46, 240, 0.3) 10px 10px;
   z-index: 999;
   border: 0;
   outline: 0;
@@ -2851,10 +2851,10 @@ section.nft-show #stars::before {
   transition: all 0.5s ease-in;
 }
 
-#play-pause-button:hover {
+/* #play-pause-button:hover {
   background: #a143b9;
   box-shadow: rgba(149, 30, 164, 0.4) 5px 5px, rgba(149, 30, 164, 0.3) 10px 10px;
-}
+} */
 
 @keyframes fade-in {
   0% {
@@ -2952,12 +2952,12 @@ section.footer {
   width: 100%;
   padding: 20px 0px;
   text-align: center;
-  background: #face00;
+  background: #000;
 }
 
 section.footer h3 {
   font-size: 22px;
-  color: black;
+  color: #face00;
   /* font-family: 'Shadows Into Light', cursive; */
   font-weight: 800;
 }
@@ -4194,4 +4194,17 @@ section.testimonial.text-center::after {
   section.nft-show .container {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+.res-none{
+    background: white;
+    padding: 8px;
+    border-radius: 100px;
+}
+
+.social-img{
+  height: 20px;
+}
+.social-img-mobile{
+  height: 40px;
 }
