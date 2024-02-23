@@ -43,13 +43,10 @@ body {
     align-items: center;
     justify-content: center;
 }
-
 .overlay nav ul li a {
     text-decoration: unset;
     color: #ffffff;
 }
-
-
 .overlay nav li:nth-of-type(1) {
     background-color: #000000;
 }
@@ -279,7 +276,7 @@ nav#main-nav {
     background: #000000;
 }
 .navbar-brand .logo {
-    width: 64px;
+    width: 100%;
 }
 nav#main-nav .container {
     position: relative;

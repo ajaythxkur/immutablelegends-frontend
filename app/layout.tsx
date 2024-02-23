@@ -5,7 +5,6 @@ import "./globals.css";
 import BootstrapClient from "@/context/BootstrapClient";
 import Navbar from "@/components/Navbar";
 import AptosWalletProvider from "@/context/AptosWalletProvider";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -23,7 +22,6 @@ export default function RootLayout({
       <body className={inter.className}>
         <AptosWalletProvider>
           <BootstrapClient />
-          <Navbar />
           {children}
         </AptosWalletProvider>
       </body>
