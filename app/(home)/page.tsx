@@ -92,7 +92,7 @@ export default function Home() {
       link: "#"
     },
     {
-      icon: "/img/Jayjay.webp",
+      icon: "/img/jayjay.webp",
       name: "Jayjay",
       link: "https://twitter.com/jayjaynft4"
     },
