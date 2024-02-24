@@ -4208,3 +4208,11 @@ section.testimonial.text-center::after {
 .social-img-mobile{
   height: 40px;
 }
+
+.meet{
+  background-color: #000;
+  color: #FFF;
+  padding-top: 80px;
+  font-family: 'Shadows Into Light', cursive;
+  
+}

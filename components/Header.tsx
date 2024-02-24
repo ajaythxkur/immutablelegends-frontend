@@ -64,9 +64,9 @@ const Header: React.FC = () => {
         <>
             <nav id="main-nav" className="header">
                 <div className="logo">
-                    <a className="navbar-brand" href="index.html">
+                    <Link className="navbar-brand" href="/">
                         <Image alt="not-found" src="/logo.jpeg" className="logo" width={64} height={60} />
-                    </a>
+                    </Link>
                 </div>
                 <div className="icon-navs">
                     <ul>
@@ -111,13 +111,9 @@ const Header: React.FC = () => {
                     <li className="flex-li">
                     {
                             socials.map((v, i) => (
-                              <>
-                                 {/* <li className="res-none" key={i}> */}
                                     <a href={v.href} key={i} target={v.href == "/locking" ? "" : "_blank"}>
                                         <Image className="social-img-mobile" src={v.icon} alt="not-found" height={100} width={100} />
                                     </a>
-                                {/* </li> */}
-                                </>
                             ))
                         }
                     </li>
